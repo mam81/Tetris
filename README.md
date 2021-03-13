@@ -38,3 +38,11 @@
 - Pause: Congela o jogo
 - Restart: Reinicaliza o jogo
 
+
+### Contribuidores do projeto:
+- [Matheus Antunes](https://github.com/mam81)
+- [Vitor Lopes](https://github.com/vitorlms)
+- [Rafael Dias](https://github.com/RafaelNAIP)
+- [Milton José](https://github.com/BigMilts)
+- [Pedro Sena](https://github.com/pedrosena138)
+
