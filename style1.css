@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    padding: 30px;
+
+    background-image: url("https://cdn.wallpapersafari.com/6/99/efPNnQ.jpg");   
+}
+
+.boas-vindas {
+    color:black;
+    margin: 100px;
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 50px;
+    border-radius: 10px;
+    font-family: 'Cinzel', serif;
+}
+
+.painel-escolha {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+h3 {
+    color: black;
+    font-size: 25px;
+    margin: 15px;
+}
+
+.buttons > button {
+    margin: 5px;
+    padding: 15px;
+    border-radius: 4px;
+    background-color: black;
+    color: antiquewhite;
+}
+
+.buttons > button:hover {
+    background-color: green;
+    color: whitesmoke;
+    font-size: medium;
+    font-weight: 600;
+}

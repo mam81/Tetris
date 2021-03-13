@@ -1,0 +1,164 @@
+
+body {
+  background-color: rgba(73, 163, 55, 0.9);
+  background-image: url("https://cdn.wallpapersafari.com/6/99/efPNnQ.jpg"); 
+}
+
+.moldura {
+  padding: 5px;
+  background-color: rgba(30, 30, 30);
+}
+
+.painel-dificulty {
+  padding: 15px;
+  margin: 15px;
+  justify-content: center;
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 80px;
+  font-family: 'Cinzel', serif;
+}
+
+h3 {
+  color: grey;
+  font-size: 30px;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+h4 {
+  color: grey;
+  font-size: 20px;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+h5 {
+  font-size: 30px;
+  font-family: 'DotGothic16', sans-serif;
+}
+
+#start-button {
+  padding: 15px;
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+#start-button:hover {
+  background-color: green;
+  color: antiquewhite;
+  font-weight: bolder;
+}
+
+#pause-button {
+  padding: 15px; 
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+#pause-button:hover {
+  background-color: red;
+  color: antiquewhite;
+  font-weight: bolder;
+}
+
+#restart-button {
+  padding: 15px; 
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+#restart-button:hover {
+  background-color: blue;
+  color: antiquewhite;
+  font-weight: bolder;
+}
+
+#home-button {
+  margin: 15px;
+  padding: 10px; 
+  color: antiquewhite;
+  background-color: rgb(30, 30, 30);
+  border: 1px solid grey;
+
+  transition: 0.3s;
+}
+
+#home-button:hover {
+  font-size: 15px;
+  background-color: khaki;
+  color: rgb(12, 12, 12);
+}
+
+.moldura-aside {
+  background-color: rgb(30, 30, 30);
+  padding: 10px;
+  margin-left: 30px;
+}
+
+.title {
+  color: whitesmoke;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: whitesmoke;
+}
+
+.grid div {
+  height: 20px;
+  width: 20px;
+}
+
+.mini-grid {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: transparent;
+}
+
+.aside {
+  padding: 15px;
+  justify-content: center;
+  background-color: antiquewhite;
+  border-radius: 10px;
+}
+
+.buttons {
+  justify-content: center;
+  display: flex;
+}
+
+#start-button {
+  margin: 10px;
+}
+
+#pause-button {
+  margin: 10px;
+}
+
+#restart-button {
+  margin: 10px;
+}
+
+.mini-grid div {
+  height: 20px;
+  width: 20px;
+}
+
