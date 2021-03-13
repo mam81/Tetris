@@ -11,17 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartButton = document.querySelector('#restart-button');
   const dificultyGame = document.querySelector('#dificulty');
   const statusGame = document.querySelector('#status');
-  const felicitacions = document.querySelector('#felicitacoes');
-
+  const statusHit = document.querySelector('#congrats');
 
   const width = 10;
   let nextRandom = 0;
   let timerId;
   let score = 0;
-  let dificuldade = ""; 
+  let dificulty = ""; 
   let blocks = 0;
-  let status = "Bom jogo :)";
-  let felicitacoes = "";
+  let status = "Good Game :)";
+  let statusHitGame = "";
 
   homeButton.addEventListener('click', () => {
     window.location.href = '/';
@@ -30,25 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
   statusGame.innerHTML = status;
   
   var URL = window.location.href;
-  var dificulty = URL.split("=")[1]; 
+  var dificultyURL = URL.split("=")[1]; 
   
-  dificuldade += dificulty;
-  dificultyGame.innerHTML = dificuldade;
+  dificulty += dificultyURL;
+  dificultyGame.innerHTML = dificulty;
   
   // Seconds which the figure needs to move its position
   const Dificulties = {
-    "Iniciante" : 1000,
-    "Mediana": 500,
-    "Profissional": 250,
-    "Insano": 125 
+    "Beginner" : 1000,
+    "Normal": 500,
+    "Expert": 250,
+    "Insane": 125 
   }
 
   // Quantanty of pontuation to score whenever the user completes a row
-  const PONTUATIONS = {
-    "Iniciante" : 10,
-    "Mediana": 60,
-    "Profissinal": 80,
-    "Insano": 100
+  const Pontuations = {
+    "Beginner" : 10,
+    "Normal": 60,
+    "Expert": 80,
+    "Insane": 100
   }
 
   const colors = [
@@ -246,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     blocksCounter.innerHTML = blocks;
   }
 
-  
   var counter = 0;
   startButton.addEventListener('click', () => {
     if(!timerId) {
@@ -287,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const row = [i, i+1, i+2, i+3, i+4, i+5, i+6, i+7, i+8, i+9];
 
       if(row.every(index => squares[index].classList.contains('taken'))) {
-        score += PONTUATIONS[dificulty];
+        score += Pontuations[dificulty];
         scoreDisplay.innerHTML = score;
         row.forEach(index => {
           squares[index].classList.remove('taken');
@@ -298,12 +296,12 @@ document.addEventListener('DOMContentLoaded', () => {
         squares = squaresRemoved.concat(squares);
         squares.forEach(cell => grid.appendChild(cell));
 
-        felicitacoes += "Parabéns!!";
-        felicitacions.innerHTML = felicitacoes;
+        statusHitGame += "Congratulations!!";
+        statusHit.innerHTML = statusHitGame;
       }
       setTimeout(() => {
-        felicitacoes = "";
-        felicitacions.innerHTML = felicitacoes;
+        statusHitGame = "";
+        statusHit.innerHTML = statusHitGame;
       }, 2500);  
     }
   }
@@ -313,6 +311,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
       scoreDisplay.innerHTML = score + blocks;
       clearInterval(timerId);
+      status += "End Game";
+      statusGame.innerHTML = status;
     }
   }
 

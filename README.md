@@ -1,4 +1,4 @@
-# Jogo do Tetris
+# Jogo do Tetris :computer: :video_game:
 
 [Link do Jogo](https://tetris-mam81.vercel.app)
 
@@ -27,10 +27,10 @@
 
 #### Pontuação:
 
-- Iniciante: 
-- Mediante: 
-- Profissional
-- Insano
+- Iniciante: 25
+- Mediante: 50
+- Profissional: 75
+- Insano: 100
 
 #### É mostrado em uma tela lateral,o próximo bloco a ser usado no jogo.
 #### Há três botões disponíveis na tela do jogo:

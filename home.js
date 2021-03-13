@@ -1,8 +1,8 @@
 
-function direcionamento(elem) {
-    var dificuldade = "";
-    dificuldade += elem.innerText;
+function route(elem) {
+    var dificulty = "";
+    dificulty += elem.innerText;
 
-    window.location.href = "game.html?dificuldade=" + dificuldade;
+    window.location.href = "game.html?dificulty=" + dificulty;
 
 }
