@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Quantanty of pontuation to score whenever the user completes a row
   const Pontuations = {
-    "Beginner" : 10,
-    "Normal": 60,
-    "Expert": 80,
+    "Beginner" : 25,
+    "Normal": 50,
+    "Expert": 75,
     "Insane": 100
   }
 
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       moveRight();
     } else if (e.keyCode === 40) {
       moveDown();
-    }
+    } 
   }
   document.addEventListener('keyup', control)
 
