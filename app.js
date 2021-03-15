@@ -5,22 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
   let squaresOriginal = Array.from(document.querySelectorAll('.grid div'));
   const homeButton = document.querySelector('#home-button');
   const scoreDisplay = document.querySelector('#score');
-  const blocksCounter = document.querySelector("#blocks");
   const startButton = document.querySelector('#start-button');
   const pauseButton = document.querySelector('#pause-button');
   const restartButton = document.querySelector('#restart-button');
   const dificultyGame = document.querySelector('#dificulty');
+  const bonusGame = document.querySelector('#bonus-counter');
+  const blocksCounter = document.querySelector("#blocks");
   const statusGame = document.querySelector('#status');
   const statusHit = document.querySelector('#congrats');
+  const statusBonus = document.querySelector('#bonus');
 
   const width = 10;
   let nextRandom = 0;
   let timerId;
   let score = 0;
   let dificulty = ""; 
+  let bonusCounter = 0;
   let blocks = 0;
   let status = "Good Game :)";
   let statusHitGame = "";
+  let statusBonusGame = "";
 
   homeButton.addEventListener('click', () => {
     window.location.href = '/';
@@ -33,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   dificulty += dificultyURL;
   dificultyGame.innerHTML = dificulty;
-  
+
   // Seconds which the figure needs to move its position
   const Dificulties = {
     "Beginner" : 1000,
@@ -50,6 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
     "Insane": 100
   }
 
+  const counterBonus  = {
+    "Beginner" : 0,
+    "Normal": 1,
+    "Expert": 2,
+    "Insane": 3
+}
+
   const colors = [
     'orange',
     'red',
@@ -57,6 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
     'green',
     'blue'
   ]
+
+  bonusCounter += counterBonus[dificulty];
+  bonusGame.innerHTML = bonusCounter;
+  
 
   // The Tetrominoes
   const lTetromino = [
@@ -107,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino');
-      squares[currentPosition + index].style.backgroundColor = colors[random];
-    }) 
+      squares[currentPosition + index].style.backgroundColor = colors[random]; 
+    })
   }
 
   //undraw the Tetromino
@@ -129,8 +144,29 @@ document.addEventListener('DOMContentLoaded', () => {
       moveRight();
     } else if (e.keyCode === 40) {
       moveDown();
-    } 
+    } else if (e.keyCode === 32) {
+      if (bonusCounter > 0) {
+        bonus();
+        statusBonusGame += "You used 1 bonus!";
+        statusBonus.innerHTML = statusBonusGame;
+        
+        bonusCounter -= 1;
+        bonusGame.innerHTML = bonusCounter;
+      } else {
+        statusBonusGame = "No bonus";
+        statusBonus.innerHTML = statusBonusGame;
+      }
+      
+      setTimeout(() => {
+        statusBonusGame = "";
+        statusBonus.innerHTML = statusBonusGame;
+      }, 800);
+      
+      blocks -= 1;
+      blocksCounter.innerHTML = blocks;  
+    }
   }
+
   document.addEventListener('keyup', control)
 
   //move down function
@@ -229,6 +265,14 @@ document.addEventListener('DOMContentLoaded', () => {
     [2, displayWidth+2, displayWidth*2+2, displayWidth*3+2] //iTetromino
   ]
 
+  function bonus() {
+    if (counterBonus[dificulty] > 0) {
+      nextRandom = Math.floor(Math.random()*theTetrominoes.length);
+      displayShape();
+      counterBonus[dificulty]--;
+    }  
+  }
+
   //display the shape in the mini-grid display
   function displayShape() {
     //remove any trace of a tetromino form the entire grid
@@ -252,8 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
       timerId = setInterval(moveDown, Dificulties[dificulty]);
       if(counter === 0) {
         nextRandom = Math.floor(Math.random()*theTetrominoes.length);
-        displayShape();
-        
+        displayShape(); 
       }
       startButton.disabled = true;
       pauseButton.disabled = false;
@@ -270,13 +313,13 @@ document.addEventListener('DOMContentLoaded', () => {
       timerId = null
       pauseButton.disabled = true;
       startButton.disabled = false;
-      status += "Jogo Pausado";
+      status += "Paused";
       statusGame.innerHTML = status;
     }
   })
 
   restartButton.addEventListener('click', () => {
-    window.location.href = 'game.html?dificuldade=' +   dificulty;
+    window.location.href = 'game.html?dificuldade=' + dificulty;
   })
 
   //add score
@@ -298,22 +341,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         statusHitGame += "Congratulations!!";
         statusHit.innerHTML = statusHitGame;
+
+        setTimeout(() => {
+          statusHitGame = "";
+          statusHit.innerHTML = statusHitGame;
+        }, 2500);
       }
-      setTimeout(() => {
-        statusHitGame = "";
-        statusHit.innerHTML = statusHitGame;
-      }, 2500);  
+        
     }
   }
 
   //game over
   function gameOver() {
     if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-      scoreDisplay.innerHTML = score + blocks;
+      scoreDisplay.innerHTML = score + blocks + 50 * bonusCounter;
       clearInterval(timerId);
       status += "End Game";
       statusGame.innerHTML = status;
     }
   }
-
 })

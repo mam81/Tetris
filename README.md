@@ -33,11 +33,20 @@
 - Insano: 100
 
 #### É mostrado em uma tela lateral,o próximo bloco a ser usado no jogo.
+
 #### Há três botões disponíveis na tela do jogo:
 - Start: Inicializa o jogo
 - Pause: Congela o jogo
 - Restart: Reinicaliza o jogo
 
+#### Há um bônus no jogo que caracteriza-se por "pular" o próximo bloco a ser utilizado no jogo para um outro bloco qualquer.A quantidade de bônus varia de acordo com a dificuldade do jogo:
+
+- Beginner: 0
+- Normal: 1
+- Expert: 2
+- Insane: 3
+
+##### Caso o usuário opte por não utilizar os bônus,ao fim da partida,é acrescido uma quantidade de pontos a sua pontuação final (50 pontos a cada bônus restantes):
 
 ### Contribuidores do projeto:
 - [Matheus Antunes](https://github.com/mam81)
