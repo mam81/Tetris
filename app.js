@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const statusGame = document.querySelector('#status');
   const statusHit = document.querySelector('#congrats');
   const statusBonus = document.querySelector('#bonus');
+  const sound = document.querySelector('#sound');
 
   const width = 10;
   let nextRandom = 0;
@@ -305,15 +306,17 @@ document.addEventListener('DOMContentLoaded', () => {
       status = "";
       statusGame.innerHTML = status;
     }
+    sound.play();
   })
   
   pauseButton.addEventListener('click', () => {
     if (timerId) {
+      sound.pause();
       clearInterval(timerId)
       timerId = null
       pauseButton.disabled = true;
       startButton.disabled = false;
-      status += "Paused";
+      status += "Paused!";
       statusGame.innerHTML = status;
     }
   })
@@ -339,8 +342,10 @@ document.addEventListener('DOMContentLoaded', () => {
         squares = squaresRemoved.concat(squares);
         squares.forEach(cell => grid.appendChild(cell));
 
-        statusHitGame += "Congratulations!!";
-        statusHit.innerHTML = statusHitGame;
+        if (statusHitGame != "Congrats!") {
+          statusHitGame += "Congrats!";
+          statusHit.innerHTML = statusHitGame;
+        }
 
         setTimeout(() => {
           statusHitGame = "";

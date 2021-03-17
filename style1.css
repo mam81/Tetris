@@ -14,9 +14,18 @@
     background-image: url("https://cdn.wallpapersafari.com/6/99/efPNnQ.jpg");   
 }
 
+.painel-controls {
+    /* display: flex; */
+    padding: 5px;
+    margin: 15px;
+    /* justify-content: center; */
+    background-color: antiquewhite;
+    border-radius: 10px;
+  }
+
 .boas-vindas {
     color:black;
-    margin: 100px;
+    margin: 30px;
     text-align: center;
     background-color: antiquewhite;
     padding: 50px;
@@ -33,19 +42,27 @@
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 35px;
     margin-bottom: 30px;
 }
 
 h2 {
-    font-size: 35px;
+    font-size: 70px;
 }
 
 h3 {
-    color: black;
-    font-size: 25px;
-    margin: 15px;
+    color: rgba(30, 30, 30);
+    font-size: 30px;
+    font-family: 'Cinzel', serif;
+    text-align: center;
 }
+
+h4 {
+    color: grey;
+    font-size: 22px;
+    font-family: 'Cinzel', serif;
+    text-align: center;
+  }
 
 .buttons > button {
     margin: 5px;
