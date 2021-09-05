@@ -2,7 +2,7 @@
 
 [Link do Jogo](https://tetris-mam81.vercel.app)
 
-## Projeto implentado na disciplina de Engenharia de Software (IF977)
+## Projeto realizado na disciplina de Engenharia de Software (IF977)
 
 ### COMANDOS:
 
